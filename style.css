@@ -1,0 +1,665 @@
+body {
+    --black: #242527a1;
+    --violet: #440A8F;
+    --blue: #ECF6FE;
+    --white: #FFFFFF;
+    --violet-light: #8F6CBC;
+    --red: #E7472D;
+    --black_dark: #BD9BE9;
+    --violet_dark: #AA70F5;
+    --blue_drak: #081D2F;
+    --white_dark: #000000;
+    --violet-light_dark: #ECF6FE;
+
+    margin: 0;
+    background-color: var(--blue);
+    font-family: "Space Mono", monospace;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Space Mono", monospace;
+}
+
+/* Typography */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32px;
+    color: var(--violet);
+}
+
+Button {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+}
+
+
+input,
+select {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+.Regular14 {
+    font-size: 14px;
+    line-height: 140%;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 18px;
+    line-height: 160%;
+    font-weight: 700;
+}
+
+label {
+    font-size: 16px;
+    line-height: 160%;
+    font-weight: 700;
+}
+
+.Bold14 {
+    font-size: 14px;
+    line-height: 160%;
+    font-weight: 700;
+}
+
+/* Form Elements */
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='date'],
+input[type='radio'],
+select {
+    padding: 6px 20px;
+    width: 486.5px;
+    height: 50px;
+    background: #FFFFFF;
+    border: 2px solid #8F6CBC;
+    border-radius: 10px;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+}
+
+.width100 {
+    width: 100%;
+}
+
+input[type='text'] {
+    width: 100%;
+}
+
+button {
+    padding: 20px 32px;
+    height: 60px;
+    background: #440A8F;
+    border-radius: 10px;
+    color: var(--white);
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.35s all;
+}
+
+button:hover {
+    background: var(--black_dark);
+    border-radius: 10px;
+    color: var(--white);
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:disabled {
+    background: var(--black);
+    width: 153px;
+}
+
+/* Layout */
+#strip {
+    width: 97%;
+    margin: 0 24px;
+    height: 1px;
+    background-color: var(--violet);
+}
+
+.gorizontal6 {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.gorizontal10 {
+    display: flex;
+    gap: 10px;
+}
+
+.gorizontal12 {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.vertical10 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vertical5 {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.podheader {
+    padding: 0 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 486.5px 486.5px;
+    gap: 30px 16px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.panel {
+    padding: 48px 100px;
+    width: 1189px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+section {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 836px;
+}
+
+::placeholder {
+    color: var(--violet-light);
+}
+
+/* Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 52px;
+    height: 26px;
+    background: #440A8F;
+    border-radius: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: #FFFFFF;
+    left: 2px;
+    bottom: 2px;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+/* Required Dots */
+.required-dot {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    right: 7.5px;
+    top: 8px;
+    background: #E7472D;
+    border-radius: 50%;
+    display: none;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+.required-dot.visible {
+    display: block;
+}
+
+input:valid,
+select:valid {
+    border-color: #8F6CBC !important; /* Оставляем фиолетовый цвет вместо зеленого */
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    appearance: none;
+    width: 24px !important;
+    height: 24px !important;
+    min-width: 24px !important;
+    min-height: 24px !important;
+    background: #FFFFFF;
+    border: 2px solid #8F6CBC;
+    border-radius: 6px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 0 !important;
+    flex: none !important;
+}
+
+input[type="checkbox"]:checked {
+    background: #440A8F;
+}
+
+input[type="checkbox"]:checked::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: 6px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+input[type="checkbox"]:hover {
+    border-color: #6A4B93;
+    box-shadow: 0 0 0 3px rgba(143, 108, 188, 0.1);
+}
+
+/* Clear Input Buttons */
+.clear-input {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    color: var(--black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    opacity: 0;
+    transition: all 0.2s ease;
+    z-index: 5;
+}
+
+.input-container:hover .clear-input,
+.input-container:focus-within .clear-input {
+    opacity: 1;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Custom Select */
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.select-selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 20px;
+    width: 100%;
+    height: 50px;
+    background: #FFFFFF;
+    border: 2px solid #8F6CBC;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    color: var(--black);
+}
+
+.select-selected:hover {
+    border-color: #6A4B93;
+}
+
+.select-selected.active {
+    border-color: #440A8F;
+}
+
+.select-selected svg {
+    transition: transform 0.3s ease;
+}
+
+.select-selected.active svg {
+    transform: rotate(180deg);
+}
+
+.select-options {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border: 2px solid var(--violet);
+    border-radius: 10px;
+    max-height: 260px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: max-height 0.3s ease;
+    z-index: 1000;
+    padding: 20px;
+    gap: 10px;
+    display: none;
+    flex-direction: column;
+    scrollbar-width: thin;
+    scrollbar-color: var(--violet-light) var(--blue);
+    
+    
+}
+
+.select-options.active {
+    display: flex;
+}
+
+.select-options::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+.select-options::-webkit-scrollbar {
+    width: 8px;
+}
+
+.select-options::-webkit-scrollbar-track {
+    background: var(--blue);
+    border-radius: 4px;
+    margin: 8px 4px;
+}
+
+.select-options::-webkit-scrollbar-thumb {
+    background: var(--violet-light);
+    border-radius: 4px;
+    border: 1px solid var(--violet);
+    margin: 2px;
+}
+
+.select-options::-webkit-scrollbar-thumb:hover {
+    background: var(--violet);
+}
+
+.select-option {
+    border-radius: 10px;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.35s ease;
+    flex-shrink: 0;
+}
+
+.select-option:hover {
+    background: var(--blue);
+    color: #440A8F;
+}
+
+.select-option.selected {
+    background: var(--violet-light);
+    color: #FFFFFF;
+}
+
+.custom-select select {
+    display: none;
+}
+
+/* Air Datepicker */
+.air-datepicker {
+    background: #FFFFFF !important;
+    border: 2px solid #8F6CBC !important;
+    border-radius: 10px !important;
+    position: absolute !important;
+    transform: translate(55%, -10%) !important;
+    z-index: 10000 !important;
+    padding: 15px;
+    width: auto !important;
+    height: auto !important;
+}
+
+.air-datepicker--pointer {
+    display: none !important;
+}
+
+.air-datepicker--navigation {
+    padding: 0 !important;
+    border-bottom: 1px solid #ECF6FE !important;
+}
+
+.air-datepicker--nav-title {
+    color: #440A8F !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+}
+
+.air-datepicker--nav-action {
+    width: 32px !important;
+    height: 32px !important;
+    background: #ECF6FE !important;
+    border-radius: 6px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.air-datepicker--nav-action:hover {
+    background: #8F6CBC !important;
+}
+
+.air-datepicker--nav-action path {
+    stroke: #440A8F !important;
+}
+
+.air-datepicker--nav-action:hover path {
+    stroke: #FFFFFF !important;
+}
+
+.air-datepicker--day-names {
+    margin: 0 15px !important;
+    border-bottom: 1px solid #ECF6FE !important;
+}
+
+.air-datepicker--day-name {
+    color: #8F6CBC !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+    height: 40px !important;
+}
+
+.air-datepicker--body {
+    padding: 12px !important;
+}
+
+.air-datepicker--cells {
+    grid-gap: 4px !important;
+}
+
+.air-datepicker-cell {
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    width: 56px !important;
+    height: 54px !important;
+}
+
+.air-datepicker-cell.-day- {
+    color: var(--violet) !important;
+}
+
+.air-datepicker-cell.-day-:hover {
+    background: #ECF6FE !important;
+    color: #440A8F !important;
+}
+
+.air-datepicker-cell.-current- {
+    color: var(--white) !important;
+    font-weight: 700 !important;
+    background: var(--violet-light) !important;
+}
+
+.air-datepicker-cell.-selected- {
+    background: #440A8F !important;
+    color: #FFFFFF !important;
+    font-weight: 700 !important;
+}
+
+.air-datepicker-cell.-other-month- {
+    color: #8F6CBC !important;
+    opacity: 0.5 !important;
+}
+
+.air-datepicker-cell.-weekend- {
+    color: var(--violet);
+}
+
+.air-datepicker--buttons {
+    padding: 15px !important;
+    border-top: 1px solid #ECF6FE !important;
+    gap: 10px !important;
+}
+
+.air-datepicker--button {
+    background: #ECF6FE !important;
+    border-radius: 6px !important;
+    color: #440A8F !important;
+    font-weight: 700 !important;
+    font-size: 14px !important;
+}
+
+.air-datepicker--button:hover {
+    background: #8F6CBC !important;
+    color: #FFFFFF !important;
+}
+
+.air-datepicker-body--cells.-days- {
+    display: grid !important;
+    grid-template-columns: repeat(7, 1fr) !important;
+    grid-auto-rows: 40px !important;
+    gap: 18px 4px !important;
+    row-gap: 18px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+
+.air-datepicker-body--day-name {
+    color: #440A8F !important;
+    font-weight: 700 !important;
+    font-size: 16px !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 568px;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='password'],
+    input[type='date'],
+    input[type='radio'],
+    select {
+        width: 100%;
+    }
+
+    section {
+        height: auto;
+    }
+
+    .podheader {
+        padding: 0 50px;
+    }
+
+    #strip {
+        width: 93%;
+    }
+
+    .panel {
+        padding: 48px 50px;
+        width: 668px;
+    }
+}
+
+@media (max-width: 360px) {
+    .grid {
+        grid-template-columns: 320px;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='password'],
+    input[type='date'],
+    input[type='radio'],
+    select {
+        width: 100%;
+    }
+
+    section {
+        height: auto;
+    }
+
+    .podheader {
+        padding: 0 20px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+
+    #strip {
+        width: 93%;
+    }
+
+    .panel {
+        padding: 48px 0;
+        width: 320px;
+    }
+}
